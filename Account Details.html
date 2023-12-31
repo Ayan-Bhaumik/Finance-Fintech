@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dollar Sense</title>
+    <link rel="stylesheet" href="./Account Details.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+    <style>
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="./home.html"> <h1>Dollar Sense</h1></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./home.html"><b>Home</b></a></li>
+                <li><a href="./Account Details.html"><b>Account Details</b></a></li>
+                <li><a href="./Help & Support.html"><b>Help & Support</b></a></li>
+            </ul>
+        </nav>
+ 
+ </header>
+
+    
+</body>
+<div class="h-full bg-gray-200 p-8">
+        <div class="bg-white rounded-lg shadow-xl pb-8">
+            
+            <div class="w-full h-[250px]">
+                <img src="./assets/bg4.jpg"class="w-full h-full rounded-tl-lg rounded-tr-lg">
+            </div>
+            <div class="flex flex-col items-center -mt-20">
+                <img src="./assets/Picture1.png" class="w-40 border-4 border-white rounded-full">
+                <div class="flex items-center space-x-2 mt-2">
+                    <p class="text-2xl text-black">Ayan Bhaumik</p>
+                    <span class="bg-blue-500 rounded-full p-1" title="Verified">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="text-white h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </span>
+                </div>
+                <p class="text-grey">Frontend Developer</p>
+                <p class="text-sm text-grey">Tripura, INDIA</p>
+            </div>
+            
+        </div>
+
+        <div class="my-4 flex flex-col 2xl:flex-row space-y-4 2xl:space-y-0 2xl:space-x-4">
+            <div class="w-full flex flex-col 2xl:w-1/3">
+                <div class="flex-1 bg-white rounded-lg shadow-xl p-8">
+                    <h4 class="text-xl text-gray-900 font-bold">Personal Info</h4>
+                    <ul class="mt-2 text-gray-700">
+                        <li class="flex border-y py-2">
+                            <span class="font-bold w-24">Full name:</span>
+                            <span class="text-gray-700">Mr Ayan Bhaumik</span>
+                        </li>
+                        <li class="flex border-b py-2">
+                            <span class="font-bold w-24">Birthday:</span>
+                            <span class="text-gray-700">04 Apr, 2004</span>
+                        </li>
+                        <li class="flex border-b py-2">
+                            <span class="font-bold w-24">Joined:</span>
+                            <span class="text-gray-700">10 oct 2022 (1year, 2months, 10days ago)</span>
+                        </li>
+                        <li class="flex border-b py-2">
+                            <span class="font-bold w-24">Mobile:</span>
+                            <span class="text-gray-700">6009958371</span>
+                        </li>
+                        <li class="flex border-b py-2">
+                            <span class="font-bold w-24">Email:</span>
+                            <span class="text-gray-700">mrayanbhaumik@gmail.com</span>
+                        </li>
+                        <li class="flex border-b py-2">
+                            <span class="font-bold w-24">Location:</span>
+                            <span class="text-gray-700">Tripura, INDIA</span>
+                        </li>
+                        <li class="flex border-b py-2">
+                            <span class="font-bold w-24">Languages:</span>
+                            <span class="text-gray-700">English, Hindi, Bengali</span>
+                        </li>
+                        <li class="flex items-center border-b py-2 space-x-2">
+                            <div class="flex flex-wrap mt-10 justify-center">
+                                <div class="m-3">
+                                  <a href="https://www.facebook.com" title="Facebook"
+                                     class="md:w-32 bg-white tracking-wide text-gray-800 font-bold rounded border-2 border-blue-600 hover:border-blue-600 hover:bg-blue-600 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
+                                    <span class="mx-auto">Facebook</span>
+                                  </a>
+                                </div>
+                                <div class="m-3">
+                                  <a href="https://twitter.com" title="Twitter"
+                                     class="md:w-32 bg-white tracking-wide text-gray-800 font-bold rounded border-2 border-blue-500 hover:border-blue-500 hover:bg-blue-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
+                                    <span class="mx-auto">Twitter</span>
+                                  </a>
+                                </div>
+                                <div class="m-3">
+                                  <a href="https://pinterest.com" title="Pinterest"
+                                     class="md:w-32 bg-white tracking-wide text-gray-800 font-bold rounded border-2 border-red-600 hover:border-red-600 hover:bg-red-600 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
+                                    <span class="mx-auto">Pintrest</span>
+                                  </a>
+                                </div>
+                                <div class="m-3">
+                                  <a href="https://www.reddit.com" title="Reddit"
+                                     class="md:w-32 bg-white tracking-wide text-gray-800 font-bold rounded border-2 border-orange-500 hover:border-orange-500 hover:bg-orange-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
+                                    <span class="mx-auto">Reddit</span>
+                                  </a>
+                                </div>
+                              </div>
+                    </ul>
+                </div>
+                <div class="flex-1 bg-white rounded-lg shadow-xl mt-4 p-8">
+                    <h4 class="text-xl text-gray-900 font-bold">Activity log</h4>
+                    <div class="relative px-4">
+                        <div class="absolute h-full border border-dashed border-opacity-20 border-secondary"></div>
+
+                       
+                        <div class="flex items-center w-full my-6 -ml-1.5">
+                            <div class="w-1/12 z-10">
+                                <div class="w-3.5 h-3.5 bg-blue-600 rounded-full"></div>
+                            </div>
+                            <div class="w-11/12">
+                                <p class="text-sm">Profile informations changed.</p>
+                                <p class="text-xs text-gray-500">3 min ago</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center w-full my-6 -ml-1.5">
+                            <div class="w-1/12 z-10">
+                                <div class="w-3.5 h-3.5 bg-blue-600 rounded-full"></div>
+                            </div>
+                            <div class="w-11/12">
+                                <p class="text-sm">Apple AirPods Pro (2nd Generation) worth <a href="#" class="text-blue-600 font-bold">₹18,999.00</a> was purchased.</p>
+                                <p class="text-xs text-gray-500">13 hour : 57 min ago</p>
+                            </div>
+                        </div>
+   
+                        <div class="flex items-center w-full my-6 -ml-1.5">
+                            <div class="w-1/12 z-10">
+                                <div class="w-3.5 h-3.5 bg-blue-600 rounded-full"></div>
+                            </div>
+                            <div class="w-11/12">
+                                <p class="text-sm">
+                                    A Sunglasses worth  <a href="#" class="text-blue-600 font-bold"> ₹8,999.00 </a> was purchased.</p>
+                                <p class="text-xs text-gray-500">17 hour ago</p>
+                            </div>
+                        </div>
+                       
+                        <div class="flex items-center w-full my-6 -ml-1.5">
+                            <div class="w-1/12 z-10">
+                                <div class="w-3.5 h-3.5 bg-blue-600 rounded-full"></div>
+                            </div>
+                            <div class="w-11/12">
+                                <p class="text-sm">New order placed on Amazon order id <a href="#" class="text-blue-600 font-bold"> #OR9653</a>worth
+                                    <a href="#" class="text-blue-600 font-bold"> ₹5,999.00</a></p>
+                                <p class="text-xs text-gray-500">20 hours ago</p>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col w-full 2xl:w-2/3">
+                <div class="flex-1 bg-white rounded-lg shadow-xl p-8">
+                    <h4 class="text-xl text-gray-900 font-bold">About</h4>
+                   <center> <p class="mt-2 text-gray-700"> Persuing B.Tech from <br>
+                        ICFAI University Tripura
+                        <br>
+                        Completed Software Programming from Brainware University</p>
+                </div></center>
+                <div class="flex-1 bg-white rounded-lg shadow-xl mt-4 p-8">
+                    <h4 class="text-xl text-gray-900 font-bold">Statistics</h4>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-4">
+                        <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-sm text-indigo-600">Annual Revenue</span>
+                                <span class="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default">365 days</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-6">
+                                <div>
+                                    <svg class="w-12 h-12 p-2.5 bg-indigo-400 bg-opacity-20 rounded-full text-indigo-600 border border-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="flex items-end">
+                                        <span class="text-2xl 2xl:text-3xl font-bold">₹14,06,891</span>
+                                        <div class="flex items-center ml-2 mb-1">
+                                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                                            <span class="font-bold text-sm text-gray-500 ml-0.5">13%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-sm text-green-600">Monthly Revenue</span>
+                                <span class="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default">30 days</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-6">
+                                <div>
+                                    <svg class="w-12 h-12 p-2.5 bg-indigo-400 bg-opacity-20 rounded-full text-indigo-600 border border-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="flex items-end">
+                                        <span class="text-2xl 2xl:text-3xl font-bold">₹1,17,240</span>
+                                        <div class="flex items-center ml-2 mb-1">
+                                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                                            <span class="font-bold text-sm text-gray-500 ml-0.5">15%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-sm text-blue-600">Weekly Revenue</span>
+                                <span class="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default">7 days</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-6">
+                                <div>
+                                    <svg class="w-12 h-12 p-2.5 bg-indigo-400 bg-opacity-20 rounded-full text-indigo-600 border border-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="flex items-end">
+                                        <span class="text-2xl 2xl:text-3xl font-bold">₹29,310</span>
+                                        <div class="flex items-center ml-2 mb-1">
+                                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                                            <span class="font-bold text-sm text-gray-500 ml-0.5">17%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <canvas id="verticalBarChart" style="display: block; box-sizing: border-box; height: 414px; width: 828px;" width="1656" height="828"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script>
+
+            const DATA_SET_VERTICAL_BAR_CHART_1 = [95819, 85302, 125101, 113658, 105129, 131104, 125277, 129190, 104538, 107270, 99654, 117240];
+
+            const labels_vertical_bar_chart = ['January', 'February', 'March', 'April', 'May', 'Jun', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+            const dataVerticalBarChart= {
+                labels: labels_vertical_bar_chart,
+                datasets: [
+                    {
+                        label: 'INCOME',
+                        data: DATA_SET_VERTICAL_BAR_CHART_1,
+                        borderColor: 'rgb(54, 162, 235)',
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    }
+                ]
+            };
+            const configVerticalBarChart = {
+                type: 'bar',
+                data: dataVerticalBarChart,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Last 12 Months'
+                        }
+                    }
+                },
+            };
+
+            var verticalBarChart = new Chart(
+                document.getElementById('verticalBarChart'),
+                configVerticalBarChart
+            );
+        </script>
+
+<section>
+    <footer>
+        <p>&copy; Copyright 2023 Dollar Sense. All Rights Reserved</p>
+    </footer>
+</section>
+</body>
+</html>

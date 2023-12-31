@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dollar Sense</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #00b3e0;
+        color: #fff;
+        text-align: center;
+        padding: 15px 0;
+    }
+  
+    ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+    li {
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+    <div 
+    class="fixed bottom-0 left-0 right-0 z-40 px-5 py-4 text-center text-white bg-gray-800">&copy; Copyright 2023 Dollar Sense. All Rights Reserved
+    </div>
+    <header>
+        <div 
+        class=" top-0 left-0 right-0 z-40 px-3 py-1 text-center text-white bg-blue-400"><a href="./home.html" class="cta-button"><h1 class="text-3xl text-allign-center font-bold mb-4 w-full">Dollar Sense</h1></a>
+        </div>
+        
+    </section>
+    </header>
+<body>
+    <br><br>
+    <h1 class="text-3xl font-bold text-center  mb-8 w-full">Expence Calculator</h1>
+    <div class="flex">
+        <div class="mr-20 w-full">
+            <div class="mb-4">
+                <label for="location" class="mr-2">Select Location:</label>
+                <select id="location" onchange="updateHourlyRates()" class="lign-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none">
+                    <option value="INDIA" selected>INDIA</option>
+                    <option value="USA">USA</option>
+                    <option value="CANADA">CANADA</option>
+                    <option value="AUSTRALIA">AUSTRALIA</option>
+                    <option value="BRAZIL">BRAZIL</option>
+                    <option value="CHINA">CHINA</option>
+                    <option value="UK">UK</option>
+                    <option value="GERMANY">GERMANY</option>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label for="frequency" class="mr-2">Frequency:</label>
+                <select id="frequency" onchange="updateYearlyCost()" 
+                class="lign-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none">
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="yearly">Yearly</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="duration" class="mr-2">Work Duration:</label>
+                <select id="duration" onchange="updateTotalCost()" 
+                class="lign-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none">
+
+                    <option value="01">01 hour</option>
+                    <option value="06">06 hours</option>
+                    <option value="12">12 hours</option>
+                </select>
+            </div>
+        </div>
+        <div class="flex flex-col justify-end space-2 w-full">
+            <h2 class="text-2xl mb-4"> Quick Acess: <h2>
+            <button onclick="applyDailyStandUp()" class="py-2 px-4 bg-red-100 text-red-500 font-medium rounded-md mb-4">Daily Stand-up</button>
+            <button onclick="applyWeeklySync()" class="py-2 px-4 bg-red-100 text-red-500 font-medium rounded-md mb-4">Weekly Sync</button>
+            <button onclick="applyMonthlyReview()" class="py-2 px-4 bg-red-100 text-red-500 font-medium rounded-md mb-4">Monthly Review</button>
+            <button onclick="applyQuarterlyPlanning()" class="py-2 px-4 bg-red-100 text-red-500 font-medium rounded-md mb-4">Quarterly Planning</button>
+            <button onclick="applyQuarterlyPlanning()" class="py-2 px-4 bg-red-100 text-red-500 font-medium rounded-md mb-4">Yearly Measure</button>
+        </div>
+    </div>
+
+    <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-300">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border-y border-gray-100 bg-gray-50/50 p-2">Job Title</th>
+                    <th class="border-y border-gray-100 bg-gray-50/50 p-2">Hourly Cost</th>
+                    <th class="border-y border-gray-100 bg-gray-50/50 p-2">NO. of Employees</th>
+                    <th class="border-y border-gray-100 bg-gray-50/50 p-2">Total Cost</th>
+                    <th class="border-y border-gray-100 bg-gray-50/50 p-2">❌</th>
+                </tr>
+            </thead>
+            <tbody id="attendees-list">
+                <!-- Initial attendees -->
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <select onchange="updateHourlyRate(this)" class="p-2 rounded border bg-white">
+                            <option value="Developer">Developer</option>
+                            <option value="Designer">Designer</option>
+                            <option value="Product Manager">Product Manager</option>
+                            <option value="Executive">Executive</option>
+                        </select>
+                    </td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <input type="number"  class="p-2 rounded border hourly-rate" value="75">
+                    </td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <input type="number"  onchange="updateTotalCost()" value="1" class="p-2 rounded border attendees-count">
+                    </td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <input type="number" readonly disabled class="p-2 rounded border total-cost">
+                    </td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <button onclick="removeRow(this)" class="p-2 text-red-600 ">
+                            <svg class="w-6 h-6 " stroke="currentColor" fill="none"  xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
+                            <path d="M 10 2 L 9 3 L 4 3 L 4 5 L 5 5 L 5 20 C 5 20.522222 5.1913289 21.05461 5.5683594 21.431641 C 5.9453899 21.808671 6.4777778 22 7 22 L 17 22 C 17.522222 22 18.05461 21.808671 18.431641 21.431641 C 18.808671 21.05461 19 20.522222 19 20 L 19 5 L 20 5 L 20 3 L 15 3 L 14 2 L 10 2 z M 7 5 L 17 5 L 17 20 L 7 20 L 7 5 z M 9 7 L 9 18 L 11 18 L 11 7 L 9 7 z M 13 7 L 13 18 L 15 18 L 15 7 L 13 7 z"></path>
+                            </svg>
+                        </button>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="flex w-2/3 justify-center mx-auto mt-8">
+        <div>
+            <button onclick="addAttendee()" class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex items-center gap-3 mt-4" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" stroke-width="2" class="h-4 w-4"><path d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z"></path></svg> 
+                Add Employeeee
+            </button>
+        </div>
+        <div class="flex w-full justify-end">
+            <div class="col-span-9 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-sm text-gray-500">Working Cost</div>
+                        <div class="font-bold text-lg">₹<span id="meeting-total">0.00</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                    <div class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div class="flex flex-col flex-grow ml-4">
+                        <div class="text-sm text-gray-500">Yearly cost</div>
+                        <div class="font-bold text-lg">₹<span id="yearly-cost-result">0.00</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+
+    
+
+    <script>
+        const hourlyRates = {
+        INDIA: {
+        Developer: 275,
+        Designer: 130,
+        Marketer: 120,
+        "Product Manager": 145,
+        Executive: 180,
+            },
+        JAPAN: {
+        Developer: 260,
+        Designer: 125,
+        Marketer: 115,
+        "Product Manager": 130,
+        "Executive": 150,
+            },
+        USA: {
+        Developer: 350,
+        Designer: 180,
+        Marketer: 160,
+        "Product Manager": 200,
+        Executive: 250,
+    },
+    CANADA: {
+        Developer: 325,
+        Designer: 150,
+        Marketer: 140,
+        "Product Manager": 170,
+        Executive: 200,
+    },
+    AUSTRALIA: {
+        Developer: 300,
+        Designer: 160,
+        Marketer: 150,
+        "Product Manager": 180,
+        Executive: 220,
+    },
+    BRAZIL: {
+        Developer: 240,
+        Designer: 110,
+        Marketer: 100,
+        "Product Manager": 120,
+        Executive: 140,
+    },
+    CHINA: {
+        Developer: 280,
+        Designer: 135,
+        Marketer: 125,
+        "Product Manager": 150,
+        Executive: 190,
+    },
+    UK: {
+        Developer: 280,
+        Designer: 140,
+        Marketer: 130,
+        "Product Manager": 150,
+        "Executive": 180
+    },
+    GERMANY: {
+        Developer: 290,
+        Designer: 145,
+        Marketer: 135,
+        "Product Manager": 155,
+        "Executive": 190
+    },
+        };
+
+       function beautifyNumber(number) {
+            
+            if (isNaN(number) || !isFinite(number)) {
+                return "Invalid number";
+            }
+
+           
+            let numString = number.toFixed(2);
+
+           
+            const [integerPart, decimalPart] = numString.split('.');
+
+            
+            const formattedIntegerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+           
+            const formattedNumber = decimalPart ? `${formattedIntegerPart}.${decimalPart}` : formattedIntegerPart;
+
+            return formattedNumber;
+        }
+
+
+        function updateHourlyRates() {
+            const location = document.getElementById("location").value;
+            const attendeeRows = document.querySelectorAll("#attendees-list tr");
+
+            attendeeRows.forEach(row => {
+                const jobTitleSelect = row.querySelector("select");
+                const hourlyRateInput = row.querySelector(".hourly-rate");
+                const jobTitle = jobTitleSelect.value;
+
+                hourlyRateInput.value = hourlyRates[location][jobTitle];
+
+                const attendeesCount = parseInt(row.querySelector(".attendees-count").value);
+                const meetingDuration = parseFloat(document.getElementById("duration").value);
+
+                const hourlyRate = parseFloat(hourlyRateInput.value);
+                const cost = hourlyRate * attendeesCount * meetingDuration;
+
+                row.querySelector(".total-cost").value = cost.toFixed(2);
+            });
+
+            updateTotalCost(); 
+        }
+
+        const hourlyRateInputs = document.querySelectorAll(".hourly-rate");
+        hourlyRateInputs.forEach(input => {
+            input.addEventListener('input', () => {
+                updateTotalCost(); 
+            });
+        });
+
+        
+        function applyDailyStandUp() {
+           
+            document.getElementById("frequency").value = "daily"; 
+            document.getElementById("duration").value = "0.25"; 
+
+           
+            document.getElementById("attendees-list").innerHTML = '';
+            addRow("Developer", 75, 1);
+            updateTotalCost();
+        }
+
+        
+        function applyWeeklySync() {
+           
+            document.getElementById("frequency").value = "weekly"; 
+            document.getElementById("duration").value = "1"; 
+
+            
+            document.getElementById("attendees-list").innerHTML = '';
+            addRow("Developer", 75, 3);
+            addRow("Designer", 30, 2);
+            updateTotalCost();
+        }
+
+        
+        function applyMonthlyReview() {
+           
+            document.getElementById("frequency").value = "monthly"; 
+            document.getElementById("duration").value = "1.5"; 
+
+            
+            document.getElementById("attendees-list").innerHTML = '';
+            addRow("Developer", 75, 5);
+            addRow("Designer", 30, 2);
+            addRow("Product Manager", 45, 1);
+            updateTotalCost();
+        }
+
+        
+        function applyQuarterlyPlanning() {
+           
+            document.getElementById("frequency").value = "quarterly"; 
+            document.getElementById("duration").value = "2"; 
+
+           
+            document.getElementById("attendees-list").innerHTML = '';
+            addRow("Developer", 75, 8);
+            addRow("Designer", 30, 4);
+            addRow("Product Manager", 45, 2);
+            updateTotalCost();
+        }
+
+        
+        function applyYearlyStrategyMeeting() {
+           
+            document.getElementById("frequency").value = "yearly"; 
+            document.getElementById("duration").value = "4"; 
+
+           
+            document.getElementById("attendees-list").innerHTML = '';
+            addRow("Developer", 75, 15);
+           
+            addRow("Designer", 30, 8);
+            addRow("Product Manager", 45, 4);
+           
+            updateTotalCost();
+        }
+
+      
+        function addRow(jobTitle, hourlyRate, attendeesCount) {
+            const attendeesList = document.getElementById("attendees-list");
+            const newRow = document.createElement("tr");
+            newRow.innerHTML = `
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <select onchange="updateHourlyRate(this)" class="p-2 rounded border bg-white">
+                            <option value="Developer">Developer</option>
+                            <!-- Add other job titles as options here -->
+                        </select>
+                    </td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <input type="number" class="p-2 rounded border hourly-rate" value="${hourlyRate}">
+                    </td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <input type="number" onchange="updateTotalCost()" value="${attendeesCount}" class="p-2 rounded border attendees-count">
+                    </td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <input type="number" readonly disabled class="p-2 rounded border total-cost" value="${hourlyRate * attendeesCount}">
+                    </td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <button onclick="removeRow(this)" class="p-2 text-red-600">
+                           <svg class="w-6 h-6 " stroke="currentColor" fill="none"  xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
+                            <path d="M 10 2 L 9 3 L 4 3 L 4 5 L 5 5 L 5 20 C 5 20.522222 5.1913289 21.05461 5.5683594 21.431641 C 5.9453899 21.808671 6.4777778 22 7 22 L 17 22 C 17.522222 22 18.05461 21.808671 18.431641 21.431641 C 18.808671 21.05461 19 20.522222 19 20 L 19 5 L 20 5 L 20 3 L 15 3 L 14 2 L 10 2 z M 7 5 L 17 5 L 17 20 L 7 20 L 7 5 z M 9 7 L 9 18 L 11 18 L 11 7 L 9 7 z M 13 7 L 13 18 L 15 18 L 15 7 L 13 7 z"></path>
+                            </svg>
+                        </button>
+                    </td>
+                </tr>
+            `;
+            attendeesList.appendChild(newRow);
+            updateHourlyRates();
+            updateTotalCost();
+        }
+
+
+
+        function updateHourlyRate(select) {
+            const location = document.getElementById("location").value;
+            const hourlyRateInput = select.parentElement.parentElement.querySelector(".hourly-rate");
+            const jobTitle = select.value;
+            hourlyRateInput.value = hourlyRates[location][jobTitle];
+            updateTotalCost();
+        }
+
+        function addAttendee() {
+            const attendeesList = document.getElementById("attendees-list");
+            const newRow = document.createElement("tr");
+            newRow.innerHTML = `
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <select onchange="updateHourlyRate(this)" class="p-2 rounded border bg-white">
+                            <option value="Developer">Developer</option>         
+                            <option value="Designer">Designer</option>
+                            <option value="Marketer">Marketer</option>
+                            <option value="Product Manager">Product Manager</option>
+                            <option value="Executive">Executive</option>
+                        </select>
+                    </td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <input type="number"  class="p-2 rounded border hourly-rate" value="75">
+                    </td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <input type="number" onchange="updateTotalCost()" value="1" class="p-2 rounded border attendees-count">
+                    </td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <input type="number" readonly disabled class="p-2 rounded border total-cost" value="75">
+                    </td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <button onclick="removeRow(this)" class="p-2 text-red-600 ">
+                            <svg class="w-6 h-6 " stroke="currentColor" fill="none"  xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
+                            <path d="M 10 2 L 9 3 L 4 3 L 4 5 L 5 5 L 5 20 C 5 20.522222 5.1913289 21.05461 5.5683594 21.431641 C 5.9453899 21.808671 6.4777778 22 7 22 L 17 22 C 17.522222 22 18.05461 21.808671 18.431641 21.431641 C 18.808671 21.05461 19 20.522222 19 20 L 19 5 L 20 5 L 20 3 L 15 3 L 14 2 L 10 2 z M 7 5 L 17 5 L 17 20 L 7 20 L 7 5 z M 9 7 L 9 18 L 11 18 L 11 7 L 9 7 z M 13 7 L 13 18 L 15 18 L 15 7 L 13 7 z"></path>
+                            </svg>
+                        </button>
+                    </td>
+                </tr>
+            `;
+            attendeesList.appendChild(newRow);
+            updateHourlyRates();
+            updateTotalCost();
+            
+        }
+
+        function removeRow(button) {
+            const row = button.parentElement.parentElement;
+            row.remove();
+            updateTotalCost();
+        }
+
+        function updateTotalCost() {
+            const meetingDuration = parseFloat(document.getElementById("duration").value);
+            const attendeeRows = document.querySelectorAll("#attendees-list tr");
+            let totalCost = 0;
+
+            attendeeRows.forEach(row => {
+                const hourlyRate = parseFloat(row.querySelector(".hourly-rate").value);
+                const attendeesCount = parseInt(row.querySelector(".attendees-count").value);
+                const cost = hourlyRate * attendeesCount * meetingDuration;
+                totalCost += cost;
+                row.querySelector(".total-cost").value = cost.toFixed(2);
+            });
+
+            document.getElementById("meeting-total").innerHTML = totalCost.toFixed(2);
+            updateYearlyCost();
+        }
+
+        function updateYearlyCost() {
+            const frequency = document.getElementById("frequency").value;
+            const meetingCost = parseFloat(document.getElementById("meeting-total").textContent);
+            let yearlyMultiplier = 1;
+            switch (frequency) {
+                case "daily":
+                    yearlyMultiplier = 260; // Assuming 260 working days in a year
+                    break;
+                case "weekly":
+                    yearlyMultiplier = 52; // Assuming 52 working weeks in a year
+                    break;
+                case "monthly":
+                    yearlyMultiplier = 12;
+                    break;
+                case "quarterly":
+                    yearlyMultiplier = 4;
+                    break;
+                case "yearly":
+                    yearlyMultiplier = 1;
+                    break;
+                default:
+                    yearlyMultiplier = 1;
+                    break;
+            }
+            const yearlyCost = parseFloat(meetingCost * yearlyMultiplier);
+            document.getElementById("yearly-cost-result").textContent = yearlyCost.toFixed(2);
+        }
+
+        // Initialize the calculator
+        updateHourlyRates();
+        updateTotalCost();
+    </script>
+</div>
+</body>
+</html>

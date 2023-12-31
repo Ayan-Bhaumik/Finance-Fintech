@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 100px auto;
+            padding: 20px;
+            max-width: 400px;
+        }
+        h1 {
+            color: #0073e6;
+        }
+        p {
+            font-size: 18px;
+        }
+        .rating-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .rating-label {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .rating-stars {
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+    <title>Thank You!</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Thank You for Your Response</h1>
+        <p>We greatly appreciate your feedback. Your input helps us improve our services.</p>
+        <p>Thank you for being a valued member of our community!</p>
+        
+        <div class="rating-container">
+            <label class="rating-label"></label>
+            <span class="rating-stars" id="star1" onclick="rate(1)">★</span>
+            <span class="rating-stars" id="star2" onclick="rate(2)">★</span>
+            <span class="rating-stars" id="star3" onclick="rate(3)">★</span>
+            <span class="rating-stars" id="star4" onclick="rate(4)">★</span>
+            <span class="rating-stars" id="star5" onclick="rate(5)">★</span>
+        </div>
+    </div>
+
+    <script>
+        let userRating = 0;
+
+        function rate(stars) {
+            userRating = stars;           
+            for (let i = 1; i <= 5; i++) {
+                const star = document.getElementById(`star${i}`);
+                star.style.color = 'black';
+            }      
+            for (let i = 1; i <= stars; i++) {
+                const star = document.getElementById(`star${i}`);
+                star.style.color = 'gold';
+            }
+        }
+    </script>
+</body>
+</html>

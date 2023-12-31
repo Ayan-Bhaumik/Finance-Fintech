@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap');
+
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --main-color: #117b8e;
+    --red: #e74c3c;
+    --orange: #f39c12;
+    --light-color: #888;
+    --light-bg: #eee;
+    --black: #2c3e50;
+    --white: #fff;
+    --border: 0.1rem solid rgba(0, 0, 0, 0.2);
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #333;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #00b3e0;
+    color: #fff;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    margin-left: 20px;
+    color: #e9ede8;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+*::selection {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+    width: 1rem;
+    height: 0.5rem;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+}
+
+.box-container .box {
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
+
+.box-container .box .title {
+    font-size: 2rem;
+    color: var(--black);
+    text-transform: capitalize;
+}
+
+.box-container .box .flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.box-container .flex a {
+    background-color: var(--light-bg);
+    border-radius: 0.5rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+}
+
+.box-container .flex a i {
+    margin-right: 1rem;
+    color: var(--black);
+}
+
+.box-container .flex a span {
+    color: var(--light-color);
+}
+
+.box-container .flex a:hover {
+    background-color: var(--black);
+}
+
+.box-container .flex a:hover span {
+    color: var(--white);
+}
+
+.box-container .flex a:hover i {
+    color: var(--white);
+}
+
+.contact .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.contact .row .image {
+    flex: 1 1 50rem;
+}
+
+.contact .row .image img {
+    width: 100%;
+}
+
+.contact .row form {
+    flex: 1 1 30rem;
+    background-color: var(--white);
+    padding: 2rem;
+    text-align: center;
+}
+
+.contact .row form h3 {
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+    color: var(--black);
+    font-size: 2.5rem;
+}
+
+.contact .row form .box {
+    width: 100%;
+    border-radius: 0.5rem;
+    background-color: var(--light-bg);
+    margin: 1rem 0;
+    padding: 1.4rem;
+    font-size: 1.8rem;
+    color: var(--black);
+}
+
+.contact .row form textarea {
+    height: 20rem;
+    resize: none;
+}
+
+.contact .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 3rem;
+}
+
+.contact .box-container .box {
+    text-align: center;
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    padding: 3rem;
+}
+
+.contact .box-container .box i {
+    font-size: 3rem;
+    color: var(--main-color);
+    margin-bottom: 1rem;
+}
+
+.contact .box-container .box h3 {
+    font-size: 2rem;
+    color: var(--black);
+    margin: 1rem 0;
+}
+
+.contact .box-container .box a {
+    display: block;
+    padding-top: 0.5rem;
+    font-size: 1.8rem;
+    color: var(--light-color);
+}
+
+.contact .box-container .box a:hover {
+    text-decoration: underline;
+    color: var(--black);
+}
+
+.form-container {
+    min-height: calc(100vh - 20rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container form {
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    width: 50rem;
+}
+
+.form-container form h3 {
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    color: var(--black);
+    text-align: center;
+}
+
+.form-container form p {
+    font-size: 1.7rem;
+    color: var(--light-color);
+    padding-top: 1rem;
+}
+
+.form-container form p span {
+    color: var(--red);
+}
+
+.form-container form .box {
+    font-size: 1.8rem;
+    color: var(--black);
+    border-radius: 0.5rem;
+    padding: 1.4rem;
+    background-color: var(--light-bg);
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
